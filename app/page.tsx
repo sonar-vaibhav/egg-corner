@@ -98,6 +98,21 @@ export default function Page() {
         <div className="sidebar-bottom"><button className="nav-item"><Settings2 size={18} /><span>Settings</span></button><div className="connection"><span className="live-dot" /> Live kitchen connection</div></div>
       </aside>
 
+      <nav className="mobile-nav" aria-label="Mobile navigation">
+        {[
+          { label: 'Home', target: 'Overview', icon: LayoutDashboard },
+          { label: 'New Order', target: 'New Order', icon: Plus },
+          { label: 'Kitchen', target: 'Kitchen Display', icon: Utensils },
+          { label: 'Ready', target: 'Ready for Handover', icon: PackageCheck },
+          { label: 'More', target: 'Order History', icon: MoreHorizontal },
+        ].map(({ label, target, icon: Icon }) => (
+          <button key={label} className={active === target || (label === 'More' && ['Order History', 'Menu Management', 'Staff Management', 'Reports & Analytics'].includes(active)) ? 'active' : ''} onClick={() => setActive(target)}>
+            <Icon size={19} />
+            <span>{label}</span>
+          </button>
+        ))}
+      </nav>
+
       <section className="content">
         <header className="topbar"><div><span className="eyebrow">MONDAY, 03 NOVEMBER 2026</span><h1>{active === 'Overview' ? 'Good afternoon, Arjun' : active}</h1></div><div className="top-actions"><button className="icon-btn" aria-label="Notifications"><Bell size={19} /><i /></button><div className="store-status"><span className="live-dot" /> Open <ChevronDown size={14} /></div><button className="profile-mini">AS</button></div></header>
 
