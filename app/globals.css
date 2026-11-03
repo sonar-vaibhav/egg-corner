@@ -3,7 +3,23 @@
 
 :root { --forest:#174d35; --green:#65a845; --yellow:#f4c542; --ink:#202820; --muted:#758078; --line:#e7ebe5; --paper:#fff; --canvas:#f7f8f5; }
 * { box-sizing:border-box; }
-body { margin:0; background:var(--canvas); color:var(--ink); font-family:'DM Sans',sans-serif; }
+html { scrollbar-color: #9fbaa3 var(--canvas); scrollbar-width: thin; }
+body { margin:0; background:var(--canvas); color:var(--ink); font-family:'DM Sans',sans-serif; overflow-x:auto; }
+* { scrollbar-width:thin; scrollbar-color:#9fbaa3 transparent; }
+*::-webkit-scrollbar { width:10px; height:10px; }
+*::-webkit-scrollbar-track { background:transparent; }
+*::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#a9c1ac,#6f9a78); border:3px solid transparent; border-radius:999px; background-clip:padding-box; }
+*::-webkit-scrollbar-thumb:hover { background:linear-gradient(180deg,#86aa8d,#4f805c); border-width:2px; background-clip:padding-box; }
+*::-webkit-scrollbar-corner { background:transparent; }
+.app-shell, .content, .page-body { min-width:0; }
+.categories, .tabs, .cart-items { scrollbar-color:#9fbaa3 transparent; }
+.categories::-webkit-scrollbar, .tabs::-webkit-scrollbar, .cart-items::-webkit-scrollbar { width:7px; height:7px; }
+.categories::-webkit-scrollbar-thumb, .tabs::-webkit-scrollbar-thumb, .cart-items::-webkit-scrollbar-thumb { border-width:2px; }
+@media (prefers-color-scheme: dark) {
+  html { scrollbar-color:#6d9274 #18231b; }
+  * { scrollbar-color:#6d9274 transparent; }
+  *::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#769d7c,#41664b); }
+}
 button,input,select { font:inherit; }
 button { cursor:pointer; border:0; }
 .app-shell { min-height:100vh; display:flex; }
